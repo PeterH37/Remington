@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Remington Population Change Between Periods</title><script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<style>*{box-sizing:border-box}html,body{margin:0;background:#fff;font-family:Arial,Helvetica,sans-serif}.chart-wrapper{width:100%;max-width:1150px;margin:0 auto;padding:28px 32px 12px}.heading{margin:0;color:#10377b;font-size:clamp(22px,3.1vw,32px);line-height:1.2;font-weight:700;overflow-wrap:break-word}.subtitle{margin:12px 0 0;color:#596b81;font-size:clamp(15px,2vw,20px);line-height:1.35}#chart{width:100%;height:570px}@media(max-width:650px){.chart-wrapper{padding:20px 14px 8px}#chart{height:440px}}</style></head><body><main class="chart-wrapper"><h1 class="heading">Population change between periods</h1><p class="subtitle">Percent change between consecutive ACS 5-year periods</p><div id="chart"></div></main><script>
+const periods=['2005–09 to 2010–14','2010–14 to 2015–19','2015–19 to 2020–24'];
+const populations=[2168,2639,2207,2035];
+const remington=populations.slice(1).map((v,i)=>(v/populations[i]-1)*100);
+const city=[-2.7,-2.1,-5.9];
+const pct=v=>(v>0?'+':'')+v.toFixed(1)+'%';
+const traces=[
+{type:'bar',name:'Remington',x:periods,y:remington,marker:{color:'#10377b'},text:remington.map(pct),textposition:'outside',textfont:{size:13,color:'#596b81'},cliponaxis:false,hovertemplate:'Remington<br>%{x}<br>%{y:.1f}%<extra></extra>'},
+{type:'bar',name:'Baltimore City',x:periods,y:city,marker:{color:'#69ade0'},text:city.map(pct),textposition:'outside',textfont:{size:13,color:'#596b81'},cliponaxis:false,hovertemplate:'Baltimore City<br>%{x}<br>%{y:.1f}%<extra></extra>'}
+];
+const layout={barmode:'group',bargap:0.18,bargroupgap:0.02,plot_bgcolor:'white',paper_bgcolor:'white',margin:{l:72,r:22,t:95,b:95},font:{family:'Arial, sans-serif',color:'#596b81',size:16},legend:{orientation:'h',x:0.02,y:1.18,xanchor:'left',font:{size:16,color:'#303030'}},xaxis:{type:'category',tickfont:{size:12},tickangle:0,automargin:true,showgrid:false,zeroline:false,showline:false},yaxis:{range:[-23,28],dtick:10,ticksuffix:'%',gridcolor:'#d6d6d6',gridwidth:1,zeroline:true,zerolinecolor:'#9ca8b5',zerolinewidth:2,tickfont:{size:14}},showlegend:true,hovermode:'closest'};
+Plotly.newPlot('chart',traces,layout,{responsive:true,displaylogo:false});
+</script></body></html>

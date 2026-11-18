@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Poverty rate, Black residents of Remington</title><script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script><style>html,body{margin:0;background:white;font-family:Arial,Helvetica,sans-serif}#chart{width:100%;height:720px}</style></head><body><div id="chart"></div><script>
+const years=['2009','2014','2019','2024'], vals=[4,12,1,2];
+const trace={type:'bar',x:years,y:vals,marker:{color:'#123878'},width:0.8,text:vals.map(v=>v+'%'),textposition:'outside',textfont:{size:29,color:'#5a6b81'},hovertemplate:'%{x}: %{y}%<extra></extra>',cliponaxis:false};
+const layout={paper_bgcolor:'#fff',plot_bgcolor:'#fff',margin:{l:115,r:75,t:260,b:105},title:{text:'<b>Poverty rate, Black residents of Remington</b><br><span style="font-size:23px;color:#5a6b81;font-weight:normal">Share with income in the past 12 months below the poverty level</span>',x:0.055,xanchor:'left',y:0.93,yanchor:'top',font:{family:'Arial, sans-serif',size:34,color:'#103676'}},xaxis:{type:'category',tickfont:{size:27,color:'#5a6b81'},showline:true,linecolor:'#a0aebc',linewidth:2,showgrid:false,zeroline:false},yaxis:{range:[0,50],dtick:10,ticksuffix:'%',tickfont:{size:26,color:'#5a6b81'},showgrid:true,gridcolor:'#d5d5d5',gridwidth:1,zeroline:false},showlegend:false,bargap:0.18};
+Plotly.newPlot('chart',[trace],layout,{responsive:true,displaylogo:false});
+</script></body></html>

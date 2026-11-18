@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Remington total population</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<style>
+  html,body{margin:0;background:#fff;font-family:Arial,Helvetica,sans-serif}
+  #chart{width:100%;height: min(820px, 85vh);min-height:480px}
+</style>
+</head>
+<body>
+<div id="chart"></div>
+<script>
+const years=['2005–2009','2010–2014','2015–2019','2020–2024'];
+const values=[2168,2639,2207,2035];
+const trace={type:'bar',x:years,y:values,marker:{color:'#10377b'},text:values.map(v=>v.toLocaleString('en-US')),textposition:'outside',textfont:{size:20,color:'#58697e'},hovertemplate:'%{x}<br>Population: %{y:,}<extra></extra>',cliponaxis:false};
+const layout={title:{text:'<b>Remington total population</b>',x:0.045,xanchor:'left',font:{size:34,color:'#10377b'}},margin:{l:115,r:65,t:185,b:85},paper_bgcolor:'#ffffff',plot_bgcolor:'#ffffff',font:{family:'Arial, Helvetica, sans-serif',color:'#58697e',size:19},showlegend:false,bargap:0.2,xaxis:{type:'category',showgrid:false,showline:true,linecolor:'#a0acb9',linewidth:2,tickfont:{size:20},fixedrange:false},yaxis:{range:[0,3000],dtick:500,gridcolor:'#d8d8d8',zeroline:false,tickformat:',d',tickfont:{size:19},fixedrange:false}};
+Plotly.newPlot('chart',[trace],layout,{responsive:true,displaylogo:false});
+</script>
+</body>
+</html>
